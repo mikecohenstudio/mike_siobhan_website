@@ -1,4 +1,3 @@
-<script>
 async function inject(selector, url) {
   const el = document.querySelector(selector);
   if (!el) return;
@@ -15,4 +14,3 @@ document.addEventListener("DOMContentLoaded", () => {
   inject("#site-header", "./partials/header.html");
   inject("#site-footer", "./partials/footer.html");
 });
-</script>
