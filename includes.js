@@ -1,5 +1,4 @@
-<!-- includes.js -->
-<script>
+// includes.js
 async function inject(selector, url) {
   const el = document.querySelector(selector);
   if (!el) return;
@@ -15,6 +14,4 @@ async function inject(selector, url) {
 document.addEventListener("DOMContentLoaded", () => {
   inject("#site-header", "./includes/header.html");
   inject("#site-footer", "./includes/footer.html");
-  // Important: no services injection here, to avoid recursion on services.html
 });
-</script>
