@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Siobhan and Mike Studio - E-Commerce Growth Experts</title>
-  <meta name="description" content="Expert Shopify, Amazon, and Faire store management. We help brands simplify and scale online sales with hands-on expertise and strategic guidance for sustainable growth.">
+  <meta name="description" content="Expert Shopify, Amazon, and ...ds-on expertise and strategic guidance for sustainable growth.">
   <meta name="author" content="Siobhan and Mike Studio">
 
   <meta property="og:title" content="Siobhan and Mike Studio - E-Commerce Growth Experts">
-  <meta property="og:description" content="Expert Shopify, Amazon, WooCommerce, and Faire store management. We help brands simplify and scale online sales with hands-on expertise and strategic guidance for sustainable growth.">
+  <meta property="og:description" content="Expert Shopify, Amazo...ds-on expertise and strategic guidance for sustainable growth.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -19,141 +19,390 @@
       --fg:#0f172a;
       --muted:#64748b;
       --card:#ffffff;
-      --card-fg:#0f172a;
-      --primary:#22c55e;
-      --primary-fg:#ffffff;
-      --secondary:#f1f5f9;
-      --secondary-fg:#0f172a;
-      --ring:#86efac;
-      --border:#e5e7eb;
-      --shadow:rgba(34,197,94,.25);
-      --hero-top:#f8fafc;
-      --hero-bottom:#ffffff;
+      --card-muted:#f1f5f9;
+      --brand:#065f46;        /* deep green */
+      --brand-2:#10b981;      /* mint green */
+      --brand-3:#064e3b;      /* darker green for accents */
+      --accent:#0ea5e9;       /* light blue accent kept for subtle contrast */
+      --border:#e2e8f0;
+      --shadow:0 10px 25px rgba(2, 6, 23, 0.06), 0 4px 8px rgba(2, 6, 23, 0.04);
+      --radius:16px;
+      --radius-lg:20px;
+      --radius-xl:28px;
+      --radius-2xl:36px;
+      --radius-full:999px;
+      --section-padding:68px;
+      --card-gap:18px;
+      --container:1200px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    img{max-width:100%;height:auto;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto}
-    .px{padding-left:1rem;padding-right:1rem}
-
-    header{position:sticky;top:0;z-index:50;background:#ffffffcc;backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
-    .row{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:800;font-size:20px}
-    nav a{color:#475569;margin-left:24px}
-    nav a:hover{color:var(--fg)}
-
-    .hero{padding:80px 0;background:linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%)}
-    .grid{display:grid;gap:48px}
-    @media(min-width:1024px){.grid{grid-template-columns:1fr 1fr}}
-    h1{font-size:38px;line-height:1.15;margin:0 0 16px}
-    @media(min-width:640px){h1{font-size:48px}}
-    @media(min-width:1024px){h1{font-size:60px}}
-    .lead{font-size:20px;color:var(--muted);margin:0 0 24px;line-height:1.6}
-    .btn-primary{
-      display:inline-flex;align-items:center;justify-content:center;
-      background:var(--primary);color:var(--primary-fg);
-      height:44px;border-radius:10px;padding:0 24px;font-weight:600;
-      box-shadow:0 10px 30px var(--shadow)
+    html,body{margin:0;padding:0}
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .btn-primary:hover{filter:brightness(1.05)}
 
-    .section{padding:80px 0}
-    .muted-surface{background:var(--secondary)}
-    .center{text-align:center}
-    h2{font-size:36px;margin:0 0 12px}
-    .sub{color:var(--muted);font-size:18px;max-width:760px;margin:0 auto}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    .cards{display:grid;gap:20px}
-    @media(min-width:768px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{border:1px solid var(--border);background:var(--card);color:var(--card-fg);border-radius:14px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s, box-shadow .2s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.10)}
-    .card .pad{padding:24px}
-    .card h3{margin:0 0 8px;font-size:20px}
-    .bullet{display:flex;gap:10px;margin:10px 0;color:var(--muted);font-size:14px}
-    .dot{width:6px;height:6px;border-radius:999px;background:var(--primary);margin-top:8px;flex:0 0 6px}
-
-    .about-grid{display:grid;gap:40px}
-    @media(min-width:1024px){.about-grid{grid-template-columns:1.2fr .8fr}}
-    .about p{color:#334155;font-size:18px;line-height:1.7;margin:0 0 14px}
-    .chiprow{display:flex;flex-wrap:wrap;gap:10px}
-    .chip,.chip-p{
-      display:inline-flex;align-items:center;border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 20px;
     }
-    .chip{background:#e2e8f0;color:#0f172a}
-    .chip:hover{filter:brightness(1.03)}
-    .chip-p{background:var(--primary);color:var(--primary-fg)}
-    .why{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:18px}
-    .why li{list-style:none;margin:10px 0;color:#1f2937;display:flex;gap:10px;align-items:flex-start}
+
+    /* Header injected via partial */
+    #site-header{position:sticky;top:0;z-index:50;background:#ffffffcc;backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:clip;
+      padding:72px 0 56px;
+      background:
+        radial-gradient(60% 80% at 80% -10%, #10b98122, transparent 60%),
+        radial-gradient(50% 60% at -10% 20%, #34d39922, transparent 60%),
+        #ffffff;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:40px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(180deg,#ecfdf5,#d1fae5);
+      color:#065f46;border:1px solid #a7f3d0;border-radius:var(--radius-full);
+      padding:8px 14px;font-size:13px;font-weight:600;letter-spacing:0.2px;
+      box-shadow:0 1px 0 #a7f3d0 inset, 0 6px 14px rgba(16,185,129,0.08)
+    }
+    .badge .dot{
+      width:8px;height:8px;border-radius:50%;background:linear-gradient(180deg,#10b981,#059669);box-shadow:0 0 0 3px #a7f3d044
+    }
+    .hero h1{
+      margin:16px 0 14px;
+      font-size:42px;line-height:1.12;letter-spacing:-0.3px;
+    }
+    .hero p.lede{
+      margin:0 0 24px;color:#334155;font-size:18px;line-height:1.7
+    }
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(180deg,#10b981,#059669);
+      color:white;border:none;border-radius:14px;padding:13px 18px;font-weight:700;letter-spacing:0.2px;
+      box-shadow:0 10px 20px rgba(5,150,105,0.18), inset 0 -6px 12px rgba(0,0,0,0.1);
+      transition:transform .12s ease, box-shadow .12s ease, opacity .2s ease
+    }
+    .btn:hover{transform:translateY(-1px);text-decoration:none;box-shadow:0 14px 26px rgba(5,150,105,0.22), inset 0 -6px 12px rgba(0,0,0,0.1)}
+    .btn.secondary{
+      background:linear-gradient(180deg,#f8fafc,#eef2f7);
+      color:#0f172a;border:1px solid var(--border);
+      box-shadow:0 8px 18px rgba(2,6,23,0.05), inset 0 -6px 12px rgba(0,0,0,0.03)
+    }
+    .hero-card{
+      background:linear-gradient(180deg,#ffffff,#f8fafc);
+      border:1px solid var(--border);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .card-inner{
+      border-radius:calc(var(--radius-xl) - 6px);
+      overflow:hidden;border:1px solid #e5e7eb;background:white
+    }
+    .card-head{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 14px;border-bottom:1px solid #eaeef5;background:linear-gradient(180deg,#f8fafc,#eef2f7)
+    }
+    .tabs{display:flex;gap:6px}
+    .tab{
+      padding:8px 10px;border-radius:11px;font-size:12px;font-weight:700;letter-spacing:0.2px;
+      background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a
+    }
+    .tab.active{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+    .avatar-row{display:flex;align-items:center;gap:10px}
+    .avatar{
+      width:28px;height:28px;border-radius:50%;
+      background:linear-gradient(180deg,#10b981,#059669);box-shadow:0 0 0 3px #ecfdf5
+    }
+
+    .features{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:14px;background:#ffffff
+    }
+    .feature{
+      border:1px solid #eaeef5;border-radius:12px;padding:14px;background:linear-gradient(180deg,#ffffff,#f8fafc)
+    }
+    .feature h4{margin:0 0 6px;font-size:15px}
+    .feature p{margin:0;color:#475569;font-size:14px;line-height:1.6}
+
+    .checklist{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px;border-top:1px solid #eef2f7;background:#fcfdfd
+    }
+    .checklist li{display:flex;align-items:flex-start;gap:10px;margin:0}
+    .dot{
+      flex:0 0 10px;width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(180deg,#10b981,#059669);margin-top:8px;box-shadow:0 0 0 3px #d1fae555
+    }
+    .checklist span{color:#334155}
+
+    /* Sections */
+    section{padding:var(--section-padding) 0;border-top:1px solid var(--border)}
+    section:first-of-type{border-top:0}
+    .section-head{margin-bottom:18px}
+    .section-eyebrow{
+      display:inline-block;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;
+      border-radius:999px;padding:6px 10px;font-weight:700;font-size:12px;letter-spacing:0.2px
+    }
+    .section-title{margin:10px 0 8px;font-size:28px;letter-spacing:-0.2px}
+    .section-lede{margin:0;color:#475569}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(180deg,#ffffff,#f8fafc);border:1px solid #eaeef5;border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);padding:18px
+    }
+    .card h3{margin:2px 0 6px;font-size:18px}
+    .card p{margin:0;color:#475569}
+
+    .inline-list{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0;padding:0}
+    .chip{
+      list-style:none;border:1px solid #e2e8f0;background:#f8fafc;border-radius:999px;padding:6px 10px;font-size:12px
+    }
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+
+    /* Footer injected via partial */
+    #site-footer{margin-top:32px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .grid-3{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+    }
   </style>
 </head>
 <body>
 
-  <header id="site-header"></header>
+  <div id="site-header"></div>
 
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="container px">
-        <div class="grid">
+      <div class="container">
+        <div class="hero-grid">
           <div>
-            <h1>Simplify and Scale Your <span style="color:var(--primary)">E-Commerce Success</span></h1>
-            <p class="lead">At Siobhan and Mike Studio, we help brands master Shopify, Amazon, WooCommerce, and Faire with hands-on expertise and strategic guidance for sustainable growth.</p>
-            <a class="btn-primary" href="contact.html">Start Your Growth Journey</a>
-          </div>
-          <div>
-            <img src="assets/hero.jpg" alt="Professional e-commerce workspace">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container px about">
-        <div class="about-grid">
-          <div>
-            <h2>Expertise You Can Trust</h2>
-            <p>With years of hands-on experience managing e-commerce operations across multiple platforms, we understand the real challenges brands face.</p>
-            <p>We combine technical execution with strategy so every optimization supports long-term growth.</p>
-            <p>We act as partners in your success with clear priorities and measurable outcomes.</p>
-          </div>
-
-          <div>
-            <div style="margin-bottom:24px">
-              <h3 style="margin:0 0 10px;font-size:22px">Platform Expertise</h3>
-              <div class="chiprow">
-                <span class="chip">Shopify</span>
-                <span class="chip">Amazon</span>
-                <span class="chip">Faire</span>
-                <span class="chip">WooCommerce</span>
-              </div>
+            <span class="badge"><span class="dot"></span> Shopify, Amazon, and Faire growth partners</span>
+            <h1>E-commerce that actually grows with you</h1>
+            <p class="lede">We help brands simplify their operations, improve conversion, and scale across Shopify, Amazon, and Faire. Strategy, setup, and day-to-day management — handled.</p>
+            <div class="hero-cta">
+              <a class="btn" href="contact.html">Work With Us</a>
+              <a class="btn secondary" href="https://siobhanmikestudio.youcanbook.me" target="_blank" rel="noopener">Book a Call</a>
             </div>
+          </div>
 
-            <div style="margin-bottom:24px">
-              <h3 style="margin:0 0 10px;font-size:22px">Core Competencies</h3>
-              <div class="chiprow">
-                <span class="chip-p">Store Management</span>
-                <span class="chip-p">Growth Strategy</span>
-                <span class="chip-p">Site Optimization</span>
+          <div class="hero-card">
+            <div class="card-inner">
+              <div class="card-head">
+                <div class="tabs">
+                  <span class="tab active">Shopify</span>
+                  <span class="tab">Amazon</span>
+                  <span class="tab">Faire</span>
+                </div>
+                <div class="avatar-row">
+                  <div class="avatar"></div>
+                  <div class="avatar"></div>
+                  <div class="avatar"></div>
+                </div>
               </div>
-            </div>
 
-            <div class="why">
-              <h4 style="margin:0 0 8px">Why Choose Us</h4>
-              <ul>
-                <li><span class="dot"></span><span>Proven delivery on complex ecommerce projects</span></li>
-                <li><span class="dot"></span><span>Deep marketplace and platform knowledge</span></li>
-                <li><span class="dot"></span><span>Strategies focused on sustainable growth</span></li>
+              <div class="features">
+                <div class="feature">
+                  <h4>Conversion Cleanup</h4>
+                  <p>Fix checkout friction, speed issues, and tracking that blocks growth.</p>
+                </div>
+                <div class="feature">
+                  <h4>Operational Clarity</h4>
+                  <p>Inventory and product data that behave across platforms.</p>
+                </div>
+                <div class="feature">
+                  <h4>Scalable Setup</h4>
+                  <p>Shopify builds that match your growth pace — not slow it.</p>
+                </div>
+                <div class="feature">
+                  <h4>Market Expansion</h4>
+                  <p>Cross-border, marketplaces, and retail channel alignment.</p>
+                </div>
+              </div>
+
+              <ul class="checklist">
+                <li><span class="dot"></span><span>Multi-currency, tax, and shipping sanity</span></li>
+                <li><span class="dot"></span><span>Theme, apps, and checkout tuned for speed</span></li>
+                <li><span class="dot"></span><span>Catalog that syncs cleanly to Amazon and Faire</span></li>
+                <li><span class="dot"></span><span>Reporting that actually tells you what to do next</span></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <div id="site-footer"></div>
-  <script src="./includes.js"></script>
-</body>
-</html>
+    <!-- Services -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">What we do</span>
+          <h2 class="section-title">Setup, management, and growth — without the chaos</h2>
+          <p class="section-lede">We focus on the unglamorous details that break most stores. Clean data, clean operations, clean execution.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Shopify Setup & Rebuilds</h3>
+            <p>Theme selection, build, payments, tax, shipping, and analytics — anchored on the basics that move revenue.</p>
+            <ul class="inline-list">
+              <li class="chip">Theme configuration</li>
+              <li class="chip">Payments + tax</li>
+              <li class="chip">Shipping rules</li>
+              <li class="chip">Checkout</li>
+              <li class="chip">Analytics</li>
+            </ul>
+            <div class="cta">
+              <a class="btn" href="contact.html">Get a Setup Quote</a>
+              <a class="btn secondary" href="services.html">Learn more</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Ongoing Management</h3>
+            <p>We keep your store, listings, and operations tidy. SKUs, pricing, inventory, promotions — handled.</p>
+            <ul class="inline-list">
+              <li class="chip">Catalog hygiene</li>
+              <li class="chip">Promotions</li>
+              <li class="chip">Content updates</li>
+              <li class="chip">Bug fixes</li>
+              <li class="chip">Reporting</li>
+            </ul>
+            <div class="cta">
+              <a class="btn" href="contact.html">Start a Retainer</a>
+              <a class="btn secondary" href="services.html">Learn more</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Amazon & Faire</h3>
+            <p>Listings that convert, operations that don’t break. We align storefront, catalog, and fulfillment.</p>
+            <ul class="inline-list">
+              <li class="chip">Listing optimization</li>
+              <li class="chip">Storefront setup</li>
+              <li class="chip">Offers & promos</li>
+              <li class="chip">Compliance</li>
+              <li class="chip">Performance</li>
+            </ul>
+            <div class="cta">
+              <a class="btn" href="contact.html">Get Marketplace Help</a>
+              <a class="btn secondary" href="services.html">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Why it works</span>
+          <h2 class="section-title">Less noise, more momentum</h2>
+          <p class="section-lede">We cut through app sprawl and shiny objects. You get a stack that’s maintainable and a path that compounds.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Clean Foundations</h3>
+            <p>Get the first principles right so you stop paying compounding taxes on messy setup decisions.</p>
+            <ul class="inline-list">
+              <li class="chip">Data hygiene</li>
+              <li class="chip">Performance first</li>
+              <li class="chip">Fewer, better tools</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Operational Calm</h3>
+            <p>Clear workflows and ownership. Easy handoffs. Fewer surprises. More predictable weeks.</p>
+            <ul class="inline-list">
+              <li class="chip">Checklists</li>
+              <li class="chip">Documentation</li>
+              <li class="chip">Weekly cadence</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Practical Growth</h3>
+            <p>We favor levers with compounding payoff instead of hacks that fizzle in a month.</p>
+            <ul class="inline-list">
+              <li class="chip">Conversion basics</li>
+              <li class="chip">Retention first</li>
+              <li class="chip">Real analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About teaser -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Who we are</span>
+          <h2 class="section-title">Small team, hands-on, senior attention</h2>
+          <p class="section-lede">You will not be shuffled to junior staff. You get the people who do the work — every time.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Mike</h3>
+            <p>Shopify, Amazon, and operations. Gets the boring stuff right so the fun stuff works.</p>
+          </div>
+          <div class="card">
+            <h3>Siobhan</h3>
+            <p>Brand, creative, and product experience. Keeps it human and on-brand.</p>
+          </div>
+          <div class="card">
+            <h3>Trusted Specialists</h3>
+            <p>Developers, ads, and analytics brought in only when necessary — not by default.</p>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="about.html">About Us</a>
+          <a class="btn secondary" href="services.html">Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Ready when you are</span>
+          <h2 class="section-title">Let’s simplify your growth stack</h2>
+          <p class="section-lede">We will start with the highest leverage fixes and keep your team focused.</p>
+        </div>
+
+        <div class="card">
+          <h3>Start with a short call</h3>
+          <p>Tell us what’s working, what’s breaking, and what you are aiming for. We will map a practical path.</p>
+          <div class="cta">
+            <a class="btn" href="contact.html">Contact Us</a>
+            <a class="btn secondary" href="https://siobhanmikestudio.youcanbook.me" target="_blank" rel="noopener">Book Your Growth Journey</a>
+          </div>
+          <div>
