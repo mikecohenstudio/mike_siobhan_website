@@ -76,7 +76,8 @@
     .about-grid{display:grid;gap:40px;grid-template-columns:1.4fr .6fr}
     @media(min-width:1024px){.about-grid{grid-template-columns:1.2fr .8fr}}
     .about p{color:#334155;font-size:18px;line-height:1.7;margin:0 0 14px}
-    .chiprow{display:flex;flex-wrap:wrap;gap:10px}
+    .chiprow{display:flex;flex-wrap:nowrap;gap:10px;flex-wrap:wrap;max-width:100%}
+    .about-grid > div:last-child{max-width:600px}
     .chip,.chip-p{
       display:inline-flex;align-items:center;border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px
     }
