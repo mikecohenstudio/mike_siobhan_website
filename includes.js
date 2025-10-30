@@ -12,6 +12,6 @@ async function inject(selector, url) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  inject("#site-header", "./includes/header.html");
-  inject("#site-footer", "./includes/footer.html");
+  inject("#site-header", "./partials/header.html");
+  inject("#site-footer", "./partials/footer.html");
 });
