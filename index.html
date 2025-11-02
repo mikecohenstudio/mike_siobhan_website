@@ -160,6 +160,7 @@
 </html>
 
 
+
 <!-- Free Audit Popup -->
 <style>
   #free-audit-overlay{
@@ -183,10 +184,8 @@
   }
   .fa-cta .primary{background:#16a34a;color:#fff}
   .fa-cta .secondary{background:#f1f5f9;color:#0f172a}
-  .fa-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#f8fafc;border-top:1px solid #e2e8f0}
-  .fa-x{
-    background:transparent;border:0;font-size:18px;line-height:1;color:#64748b;cursor:pointer;padding:8px
-  }
+  .fa-foot{display:flex;justify-content:flex-end;align-items:center;padding:14px 16px;background:#f8fafc;border-top:1px solid #e2e8f0}
+  .fa-x{background:transparent;border:0;font-size:18px;line-height:1;color:#64748b;cursor:pointer;padding:8px}
   @media (prefers-reduced-motion:no-preference){
     #free-audit-overlay[aria-hidden="false"] .fa-modal{animation:faPop .18s ease-out}
     @keyframes faPop{from{transform:translateY(6px);opacity:.8}to{transform:none;opacity:1}}
@@ -207,7 +206,6 @@
       </div>
     </div>
     <div class="fa-foot">
-      <small style="color:#64748b">We will not spam you. One follow-up max.</small>
       <button class="fa-x" type="button" aria-label="Close" data-fa-close>×</button>
     </div>
   </div>
@@ -220,7 +218,6 @@
 
     const STORAGE_KEY = 'freeAuditDismissedUntil';
     const DAYS_SUPPRESS = 30;
-    const DELAY_MS = 6000;
 
     function now(){ return Date.now(); }
     function msFromDays(d){ return d*24*60*60*1000; }
@@ -234,7 +231,6 @@
     function open(){
       overlay.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
-      // focus first interactive element
       const first = overlay.querySelector('a,button,[data-fa-close]');
       if (first) first.focus({preventScroll:true});
     }
@@ -255,8 +251,7 @@
     });
 
     if (!dismissed()) {
-      setTimeout(open, DELAY_MS);
+      open(); // immediate on page load
     }
   })();
 </script>
-
