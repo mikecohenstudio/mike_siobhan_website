@@ -123,26 +123,29 @@
   <script>
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyRCB2b0JfAxAGk06mDjV1WJqArjX9Zsc0IwZlnk1iuAFgMUo0jQ6TfXxRslXmeyT-9/exec';
 
-    document.getElementById('sendBtn').addEventListener('click', async () => {
-      const btn = document.getElementById('sendBtn');
-      btn.disabled = true; btn.textContent = 'Sending...';
+  document.getElementById('sendBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true; btn.textContent = 'Sending...';
 
-      const data = new URLSearchParams({
-        firstName: document.getElementById('firstName')?.value || '',
-        lastName:  document.getElementById('lastName')?.value  || '',
-        email:     document.getElementById('email')?.value     || '',
-        company:   document.getElementById('company')?.value   || '',
-        message:   document.getElementById('message')?.value   || ''
-      });
-
-      try {
-        await fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' });
-        btn.textContent = 'Sent ✔';
-      } catch {
-        btn.textContent = 'Try Again'; btn.disabled = false;
-        alert('Send failed.');
-      }
+    const data = new URLSearchParams({
+      firstName: document.getElementById('firstName')?.value || '',
+      lastName:  document.getElementById('lastName')?.value  || '',
+      email:     document.getElementById('email')?.value     || '',
+      company:   document.getElementById('company')?.value   || '',
+      message:   document.getElementById('message')?.value   || ''
     });
-  </script>
-</body>
-</html>
+
+    try {
+      await fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' });
+      document.querySelector('.form .pad').innerHTML = `
+        <div style="text-align:center;padding:60px 20px;">
+          <h2 style="font-size:24px;margin-bottom:16px;">Thank you for reaching out to us!</h2>
+          <p style="font-size:18px;color:#475569;">We’ll be in touch shortly.</p>
+        </div>
+      `;
+    } catch {
+      btn.textContent = 'Try Again'; btn.disabled = false;
+      alert('Send failed.');
+    }
+  });
+</script>
