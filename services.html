@@ -53,8 +53,8 @@
 
     /* cards */
     .cards{display:grid;gap:20px}
-    @media(min-width:768px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{border:1px solid var(--border);background:var(--card);color:var(--card-fg);border-radius:14px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s, box-shadow .2s}
+    @media(min-width:768px){.cards{grid-template-columns:repeat(2,1fr)}}
+    .card{display:block;border:1px solid var(--border);background:var(--card);color:var(--card-fg);border-radius:14px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s, box-shadow .2s}
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.10)}
     .card .pad{padding:24px}
     .bullet{display:flex;gap:10px;margin:10px 0;color:var(--muted);font-size:14px}
@@ -93,36 +93,35 @@
         </div>
 
         <div class="cards">
-          <div class="card">
+          <a class="card" href="#store-setup">
             <div class="pad">
               <h3>Store Setup & Optimization</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="card">
+          <a class="card" href="#vendor-marketplaces">
             <div class="pad">
               <h3>Vendor & Marketplace Management</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="card">
+          <a class="card" href="#consulting">
             <div class="pad">
               <h3>E-Commerce Consulting</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="card">
+          <a class="card" href="#workshops">
             <div class="pad">
               <h3>Workshops & Training</h3>
             </div>
-          </div>
-
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Store Setup & Optimization -->
-    <section class="section">
+    <section id="store-setup" class="section">
       <div class="container px content">
         <span class="badge">Store Setup & Optimization</span>
         <h2 style="margin-top:10px">Launch right. Then get faster and convert better.</h2>
@@ -152,12 +151,10 @@
             </ul>
           </div>
         </div>
-
-
     </section>
 
     <!-- Vendor & Marketplace Management -->
-    <section class="section muted-surface">
+    <section id="vendor-marketplaces" class="section muted-surface">
       <div class="container px content">
         <span class="badge">Vendor & Marketplace Management</span>
         <h2 style="margin-top:10px">Grow on more channels without chaos.</h2>
@@ -187,7 +184,7 @@
     </section>
 
     <!-- Consulting -->
-    <section class="section">
+    <section id="consulting" class="section">
       <div class="container px content">
         <span class="badge">E-Commerce Consulting</span>
         <h2 style="margin-top:10px">Clarity, plan, and measurable progress.</h2>
@@ -256,7 +253,7 @@
     </section>
 
     <!-- Workshops -->
-    <section class="section">
+    <section id="workshops" class="section">
       <div class="container px content">
         <span class="badge">Workshops & Training</span>
         <h2 style="margin-top:10px">Upskill your team and move faster.</h2>
@@ -315,7 +312,6 @@
         </div>
       </div>
     </section>
-
 
   </main>
 
