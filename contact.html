@@ -111,7 +111,7 @@
               <textarea class="textarea" id="message" placeholder="Tell us about your e-commerce challenges and goals..."></textarea>
             </div>
 
-            <div><a class="btn-primary" href="mailto:contact@mikecohen.studio">Send Message</a></div>
+            <div><button id="sendBtn" class="btn-primary" type="button">Send Message</button></div>
           </div>
         </div>
       </div>
@@ -120,5 +120,29 @@
 
   <div id="site-footer"></div>
   <script src="./includes.js"></script>
+  <script>
+    const ENDPOINT = 'https://script.google.com/a/macros/mikecohen.studio/s/AKfycbxU8C2ZlHNK9ZmSBR7BwNSDhfa5A_iyO4tF04siNEyvdKp1zErtxAHO2YGOrVNSOFF-/exec';
+
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('sendBtn');
+      btn.disabled = true; btn.textContent = 'Sending...';
+
+      const data = new URLSearchParams({
+        firstName: document.getElementById('firstName')?.value || '',
+        lastName:  document.getElementById('lastName')?.value  || '',
+        email:     document.getElementById('email')?.value     || '',
+        company:   document.getElementById('company')?.value   || '',
+        message:   document.getElementById('message')?.value   || ''
+      });
+
+      try {
+        await fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' });
+        btn.textContent = 'Sent ✔';
+      } catch {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+        alert('Send failed.');
+      }
+    });
+  </script>
 </body>
 </html>
