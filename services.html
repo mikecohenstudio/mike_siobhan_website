@@ -31,7 +31,7 @@
       --hero-bottom:#ffffff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:1120px;margin:0 auto}
@@ -46,17 +46,36 @@
     .section{padding:80px 0}
     .muted-surface{background:var(--secondary)}
     .center{text-align:center}
-    h2{font-size:36px;margin:0 0 12px}
-    .sub{color:var(--muted);font-size:18px;max-width:760px;margin:0 auto}
+    h1,h2,h3{margin:0 0 12px}
+    h2{font-size:36px}
+    h3{font-size:22px}
+    .sub{color:var(--muted);font-size:18px;max-width:780px;margin:0 auto}
 
+    /* cards */
     .cards{display:grid;gap:20px}
     @media(min-width:768px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{border:1px solid var(--border);background:var(--card);color:var(--card-fg);border-radius:14px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s, box-shadow .2s}
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.10)}
     .card .pad{padding:24px}
-    .card h3{margin:0 0 8px;font-size:20px}
     .bullet{display:flex;gap:10px;margin:10px 0;color:var(--muted);font-size:14px}
     .dot{width:6px;height:6px;border-radius:999px;background:var(--primary);margin-top:8px;flex:0 0 6px}
+
+    /* content blocks */
+    .content{max-width:920px;margin:0 auto}
+    .content p{color:var(--fg);margin:0 0 12px}
+    .lead{font-size:18px;color:var(--muted)}
+    .grid-2{display:grid;gap:24px}
+    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}}
+    ul{margin:0 0 8px 0;padding-left:18px;color:var(--fg)}
+    li{margin:6px 0}
+    .badge{display:inline-block;background:var(--primary);color:var(--primary-fg);font-weight:600;padding:6px 10px;border-radius:999px;font-size:12px}
+    .divider{height:1px;background:var(--border);margin:28px 0}
+
+    /* cta */
+    .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;border:1px solid var(--border);font-weight:600}
+    .btn.primary{background:var(--primary);color:var(--primary-fg);border-color:transparent;box-shadow:0 8px 20px var(--shadow)}
+    .btn.secondary{background:#fff}
   </style>
 </head>
 <body>
@@ -64,43 +83,328 @@
   <header id="site-header"></header>
 
   <main>
+
+    <!-- Overview -->
     <section id="services" class="section muted-surface">
       <div class="container px">
         <div class="center" style="margin-bottom:32px">
           <h2>Our Services</h2>
-          <p class="sub">We bridge the gap between strategy and execution, giving you more time to focus on your brand while we manage the complexities of e-commerce.</p>
+          <p class="sub">We bridge the gap between strategy and execution so you can focus on product and customers while we manage the complexity of e-commerce.</p>
         </div>
 
         <div class="cards">
           <div class="card">
             <div class="pad">
               <h3>Store Setup & Optimization</h3>
-              <div class="bullet"><span class="dot"></span><span>Product catalog management</span></div>
-              <div class="bullet"><span class="dot"></span><span>Store performance improvements</span></div>
-              <div class="bullet"><span class="dot"></span><span>SEO and conversion tuning</span></div>
+              <div class="bullet"><span class="dot"></span><span>Clean setup, UX polish, and reliable tracking</span></div>
+              <div class="bullet"><span class="dot"></span><span>Speed, conversion, and checkout improvements</span></div>
+              <div class="bullet"><span class="dot"></span><span>International basics and app hygiene</span></div>
             </div>
           </div>
 
           <div class="card">
             <div class="pad">
               <h3>Vendor & Marketplace Management</h3>
-              <div class="bullet"><span class="dot"></span><span>Shopify, Amazon, WooCommerce, and Faire coordination</span></div>
-              <div class="bullet"><span class="dot"></span><span>Inventory sync and order flow</span></div>
-              <div class="bullet"><span class="dot"></span><span>Compliance and catalog health</span></div>
+              <div class="bullet"><span class="dot"></span><span>Shopify, Amazon, and Faire coordination</span></div>
+              <div class="bullet"><span class="dot"></span><span>Inventory sync, pricing rules, and SLAs</span></div>
+              <div class="bullet"><span class="dot"></span><span>Compliance, listing quality, and reputation</span></div>
             </div>
           </div>
 
           <div class="card">
             <div class="pad">
               <h3>E-Commerce Consulting</h3>
-              <div class="bullet"><span class="dot"></span><span>Growth strategy and roadmaps</span></div>
-              <div class="bullet"><span class="dot"></span><span>Performance analytics</span></div>
-              <div class="bullet"><span class="dot"></span><span>Market expansion planning</span></div>
+              <div class="bullet"><span class="dot"></span><span>Growth strategy and 90 day roadmaps</span></div>
+              <div class="bullet"><span class="dot"></span><span>Dashboards, funnel analysis, and testing</span></div>
+              <div class="bullet"><span class="dot"></span><span>Lifecycle programs that retain customers</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Store Setup & Optimization -->
+    <section class="section">
+      <div class="container px content">
+        <span class="badge">Store Setup & Optimization</span>
+        <h2 style="margin-top:10px">Launch right. Then get faster and convert better.</h2>
+        <p class="lead">We set up the foundations and remove friction across the shopping journey. Expect a clean admin, fast pages, and trustworthy data.</p>
+
+        <div class="grid-2" style="margin-top:16px">
+          <div>
+            <h3>What we set up</h3>
+            <ul>
+              <li>Shopify primary, WooCommerce by request</li>
+              <li>Theme configuration and UX polish</li>
+              <li>Catalog structure: collections, variants, metafields, tags</li>
+              <li>Payments, shipping, taxes, invoices, legal pages</li>
+              <li>Apps: review, compare, install only what is necessary</li>
+              <li>International basics: Markets, currencies, domains, rounding</li>
+              <li>Data and tracking: GA4, Tag Manager, Meta, TikTok, Pinterest</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Conversion and performance</h3>
+            <ul>
+              <li>Speed gains: image sizing, lazy load, script hygiene</li>
+              <li>Navigation, filters, on-site search improvements</li>
+              <li>Product page layout, badges, trust signals, cross-sell</li>
+              <li>Checkout tweaks: wallets, fields, upsell, shipping clarity</li>
+              <li>Accessibility fixes and schema markup</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid-2">
+          <div>
+            <h3>Deliverables</h3>
+            <ul>
+              <li>Store checklist complete and documented</li>
+              <li>Before and after speed snapshots</li>
+              <li>Tracking validation report</li>
+              <li>14 day post-launch support window</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Good fit when</h3>
+            <ul>
+              <li>You are launching or relaunching a store</li>
+              <li>You need a clean baseline before running ads</li>
+              <li>You want simple systems instead of app sprawl</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vendor & Marketplace Management -->
+    <section class="section muted-surface">
+      <div class="container px content">
+        <span class="badge">Vendor & Marketplace Management</span>
+        <h2 style="margin-top:10px">Grow on more channels without chaos.</h2>
+        <p class="lead">We make Shopify the source of truth and coordinate Amazon, Faire, and other channels so listings, prices, and inventory stay in sync.</p>
+
+        <div class="grid-2" style="margin-top:16px">
+          <div>
+            <h3>Channels we manage</h3>
+            <ul>
+              <li>Amazon: Brand Registry, listing quality, A+ content, cases</li>
+              <li>Faire: wholesale catalog, MOQs, promotions, order flow</li>
+              <li>WooCommerce or B2B portals when needed</li>
+            </ul>
+            <h3 style="margin-top:16px">Day-to-day operations</h3>
+            <ul>
+              <li>SKU creation at scale with templates and QA</li>
+              <li>Price lists, promotions, and fee-aware profitability</li>
+              <li>Inventory sync and backorder rules</li>
+              <li>Order routing and SLA tracking</li>
+              <li>Review programs and reputation hygiene</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Deliverables</h3>
+            <ul>
+              <li>Channel playbook with SKU mapping and pricing rules</li>
+              <li>Compliance checklist to avoid suspensions</li>
+              <li>Monthly summary with next sprint actions</li>
+            </ul>
+            <h3 style="margin-top:16px">Good fit when</h3>
+            <ul>
+              <li>You sell on more than one channel</li>
+              <li>Data lives in spreadsheets and errors keep repeating</li>
+              <li>Margin is unclear after fees and shipping</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consulting -->
+    <section class="section">
+      <div class="container px content">
+        <span class="badge">E-Commerce Consulting</span>
+        <h2 style="margin-top:10px">Clarity, plan, and measurable progress.</h2>
+        <p class="lead">We connect strategy to execution with simple roadmaps and dashboards that show what to do next.</p>
+
+        <div class="grid-2" style="margin-top:16px">
+          <div>
+            <h3>Strategy and roadmaps</h3>
+            <ul>
+              <li>Quarterly growth plan with a priority matrix</li>
+              <li>Market expansion and offer architecture</li>
+              <li>Bundles, subscriptions, and wholesale plays</li>
+            </ul>
+            <h3 style="margin-top:16px">Measurement and insights</h3>
+            <ul>
+              <li>Dashboards for revenue, AOV, CAC, LTV, ROAS, margin</li>
+              <li>Funnel analysis and testing backlog</li>
+              <li>Attribution sanity checks</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Retention and lifecycle</h3>
+            <ul>
+              <li>Email and SMS foundations: capture, welcome, post-purchase</li>
+              <li>Winback and churn prevention programs</li>
+              <li>Reviews, UGC, loyalty, and referrals</li>
+            </ul>
+            <h3 style="margin-top:16px">Deliverables</h3>
+            <ul>
+              <li>90 day roadmap with KPIs</li>
+              <li>Testing backlog with owners and dates</li>
+              <li>Monthly review call and action log</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audits -->
+    <section class="section muted-surface">
+      <div class="container px content">
+        <span class="badge">Audits</span>
+        <h2 style="margin-top:10px">Know what to fix first.</h2>
+        <p class="lead">Use this before a rebuild or ad spend. We highlight quick wins and map the next 90 days.</p>
+
+        <div class="grid-2" style="margin-top:16px">
+          <div>
+            <h3>Included sections</h3>
+            <ul>
+              <li>Technical health: speed, errors, schema, accessibility</li>
+              <li>UX and conversion: nav, search, PDP, cart, checkout</li>
+              <li>Data accuracy: events, pixels, GA4, consent</li>
+              <li>Channel review: Amazon or Faire opportunities</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Output</h3>
+            <ul>
+              <li>Concise report with a priority matrix</li>
+              <li>Quick wins, 30 day plan, 90 day plan</li>
+              <li>Walkthrough call and Q&A</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshops -->
+    <section class="section">
+      <div class="container px content">
+        <span class="badge">Workshops & Training</span>
+        <h2 style="margin-top:10px">Upskill your team and move faster.</h2>
+        <p class="lead">Hands-on sessions with your store and brand files. Recording provided.</p>
+
+        <div class="grid-2" style="margin-top:16px">
+          <div>
+            <h3>Shopify Workshop</h3>
+            <ul>
+              <li>Admin mastery, products, collections, inventory</li>
+              <li>Merchandising, promotions, discount strategy</li>
+              <li>Theme updates without breaking layout</li>
+              <li>Live exercises and checklists</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Canva Workshop</h3>
+            <ul>
+              <li>Brand kit setup and reusable templates</li>
+              <li>Product image workflow and social system</li>
+              <li>Export settings and file management</li>
+              <li>Cheatsheets for your team</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we work -->
+    <section class="section muted-surface">
+      <div class="container px content">
+        <span class="badge">Process</span>
+        <h2 style="margin-top:10px">How we work</h2>
+        <div class="grid-2" style="margin-top:12px">
+          <div>
+            <h3>1) Discovery</h3>
+            <p>Short call and a checklist so we understand goals, systems, and constraints.</p>
+            <h3 style="margin-top:16px">2) Audit</h3>
+            <p>We assess the current state and identify the highest value actions.</p>
+            <h3 style="margin-top:16px">3) Roadmap</h3>
+            <p>Clear scope, timelines, and responsibilities. No fluff.</p>
+          </div>
+          <div>
+            <h3>4) Build and implement</h3>
+            <p>We ship in weekly sprints and show progress in a shared tracker.</p>
+            <h3 style="margin-top:16px">5) Measure and improve</h3>
+            <p>Monthly reviews, dashboards, and a living backlog.</p>
+            <h3 style="margin-top:16px">What we need</h3>
+            <ul>
+              <li>Shopify and analytics access</li>
+              <li>Brand kit and product data sources</li>
+              <li>Shipping, tax, and pricing rules</li>
+              <li>One internal point of contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools, Engagement, FAQs, CTA -->
+    <section class="section">
+      <div class="container px content">
+        <div class="grid-2">
+          <div>
+            <span class="badge">Tool Stack</span>
+            <h3 style="margin-top:10px">Platforms and tools</h3>
+            <ul>
+              <li>Shopify, GA4, Tag Manager</li>
+              <li>Meta, TikTok, Pinterest pixels</li>
+              <li>Amazon Seller Central, Faire portal</li>
+              <li>Klaviyo, Judge.me or similar reviews</li>
+              <li>Lightweight app set chosen per project</li>
+            </ul>
+          </div>
+          <div>
+            <span class="badge">Engagement Options</span>
+            <h3 style="margin-top:10px">Ways to work together</h3>
+            <ul>
+              <li><strong>Project</strong> – fixed scope setup or migration</li>
+              <li><strong>Retainer</strong> – ongoing management and growth</li>
+              <li><strong>Audit only</strong> – diagnostic with a 30 and 90 day plan</li>
+              <li><strong>Workshops</strong> – team training with recordings</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid-2">
+          <div>
+            <span class="badge">FAQs</span>
+            <h3 style="margin-top:10px">Common questions</h3>
+            <ul>
+              <li><strong>Do you work with new stores?</strong> Yes. We scope to stage and budget.</li>
+              <li><strong>Can you manage Amazon ads?</strong> We coordinate with your ads partner or recommend one. Our focus is retail readiness and operations.</li>
+              <li><strong>Do you replace our developer?</strong> Not always. We often act as the operator between teams.</li>
+              <li><strong>How quickly can we start?</strong> Discovery can begin this week. Timelines depend on scope.</li>
+            </ul>
+          </div>
+          <div>
+            <span class="badge">Next Step</span>
+            <h3 style="margin-top:10px">Ready to improve your store</h3>
+            <p class="lead">Tell us your goals and where it hurts most. We will respond with a short plan and the fastest path to impact.</p>
+            <div class="cta">
+              <a class="btn primary" href="contact.html">Book a call</a>
+              <a class="btn secondary" href="contact.html">Tell us about your store</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <div id="site-footer"></div>
