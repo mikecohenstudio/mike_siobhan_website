@@ -51,3 +51,16 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
   /* Show when checkbox is checked */
   .nav-toggle:checked + .hamburger + .nav{display:flex}
 }
+
+/* Animate hamburger into X */
+.hamburger span{transition:transform .2s ease, opacity .2s ease}
+.nav-toggle:checked + .hamburger span:nth-child(1){
+  transform: translateY(9px) rotate(45deg);
+}
+.nav-toggle:checked + .hamburger span:nth-child(2){
+  opacity: 0;
+}
+.nav-toggle:checked + .hamburger span:nth-child(3){
+  transform: translateY(-9px) rotate(-45deg);
+}
+
