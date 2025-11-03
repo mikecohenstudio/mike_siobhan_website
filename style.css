@@ -39,7 +39,7 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
 
 /* Hamburger button (reset + style) */
 .hamburger{
-  display:none;               /* hidden on desktop */
+  display:none;
   background:none;
   border:0;
   padding:0;
@@ -47,8 +47,8 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
   width:28px;
   height:20px;
   cursor:pointer;
-  -webkit-appearance: none;
-  appearance: none;
+  -webkit-appearance:none;
+  appearance:none;
 }
 .hamburger span{
   display:block;
@@ -57,14 +57,17 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
   background:var(--fg);
   border-radius:2px;
   margin:3px 0;
+  transition:transform .2s ease,opacity .2s ease;
 }
 
-/* Tablet & smaller: show hamburger, collapse nav */
+/* Tablet & smaller */
 @media (max-width:900px){
   header .row{position:relative}
   .hamburger{display:block}
+
+  /* Hidden by default */
   .nav{
-    display:none;             /* hidden until JS opens it */
+    display:none;
     position:absolute;
     top:72px; right:16px;
     background:#fff;
@@ -74,8 +77,19 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
     border-radius:8px;
     min-width:220px;
     z-index:50;
-    display:flex; flex-direction:column;
+    flex-direction:column;
   }
   .nav a{margin:8px 0;color:var(--fg)}
-  .nav.open{display:flex}     /* will be toggled by JS */
+  .nav.open{display:flex}
+}
+
+/* Animate hamburger into X */
+.hamburger.active span:nth-child(1){
+  transform:translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:translateY(-9px) rotate(-45deg);
 }
