@@ -36,3 +36,18 @@ nav a:hover{color:var(--fg)}
 /* Footer */
 footer{border-top:1px solid var(--border);background:#fff}
 footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14px}
+
+/* Hamburger + tablet/mobile menu */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;margin-left:16px}
+.hamburger span{display:block;height:3px;width:100%;background:var(--fg);border-radius:2px}
+.nav-toggle{display:none}
+
+@media (max-width:900px){
+  header .row{position:relative}
+  /* Hide menu by default on tablet/mobile */
+  .nav{display:none;position:absolute;top:72px;right:16px;background:#fff;border:1px solid var(--border);box-shadow:0 8px 20px rgba(0,0,0,.08);padding:12px;border-radius:8px;flex-direction:column;min-width:220px;z-index:50}
+  .nav a{margin:8px 0;color:var(--fg)}
+  .hamburger{display:flex}
+  /* Show when checkbox is checked */
+  .nav-toggle:checked + .hamburger + .nav{display:flex}
+}
