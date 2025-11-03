@@ -77,13 +77,12 @@
     .about-grid{display:grid;gap:40px;grid-template-columns:1.4fr .6fr}
     @media(min-width:1024px){.about-grid{grid-template-columns:1.2fr .8fr}}
     .about p{color:#334155;font-size:18px;line-height:1.7;margin:0 0 14px}
-    .chiprow{display:flex;flex-wrap:nowrap;gap:10px;flex-wrap:wrap;max-width:100%}
+    .chiprow{display:flex;gap:10px;flex-wrap:wrap;max-width:100%}
 
-    /* Stack the green Core Services chips vertically */
-.chiprow .chip-p{
-  flex: 0 0 auto;
-  width: fit-content;
-}
+    /* Core Services stacked, chip width fits text */
+    .chiprow.core-services{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+    .chiprow.core-services .chip-p{width:fit-content;flex:0 0 auto}
+
     .about-grid > div:last-child{max-width:600px}
     .chip,.chip-p{
       display:inline-flex;align-items:center;border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px
@@ -119,45 +118,46 @@
     <!-- About -->
     <section id="about" class="section">
       <div class="container px about">
-<div class="about-grid">
-  <div>
-    <h2>Expertise You Can Trust</h2>
-    <p>With years of hands-on experience managing e-commerce operations across multiple platforms, we understand the real challenges brands face.</p>
-    <p>We combine technical execution with strategy so every optimization supports long-term growth.</p>
-    <p>We act as partners in your success with clear priorities and measurable outcomes.</p>
+        <div class="about-grid">
+          <div>
+            <h2>Expertise You Can Trust</h2>
+            <p>With years of hands-on experience managing e-commerce operations across multiple platforms, we understand the real challenges brands face.</p>
+            <p>We combine technical execution with strategy so every optimization supports long-term growth.</p>
+            <p>We act as partners in your success with clear priorities and measurable outcomes.</p>
 
-    <div class="why" style="margin-top:32px;max-width:480px">
-      <h4 style="margin:0 0 8px">Why Choose Us</h4>
-      <ul>
-        <li><span class="dot"></span><span>Proven delivery on complex ecommerce projects</span></li>
-        <li><span class="dot"></span><span>Deep marketplace and platform knowledge</span></li>
-        <li><span class="dot"></span><span>Strategies focused on sustainable growth</span></li>
-      </ul>
-    </div>
-  </div>
+            <div class="why" style="margin-top:32px;max-width:480px">
+              <h4 style="margin:0 0 8px">Why Choose Us</h4>
+              <ul>
+                <li><span class="dot"></span><span>Proven delivery on complex ecommerce projects</span></li>
+                <li><span class="dot"></span><span>Deep marketplace and platform knowledge</span></li>
+                <li><span class="dot"></span><span>Strategies focused on sustainable growth</span></li>
+              </ul>
+            </div>
+          </div>
 
-  <div>
-    <div style="margin-bottom:24px">
-      <h3 style="margin:0 0 10px;font-size:22px">Platform Expertise</h3>
-      <div class="chiprow">
-        <span class="chip">Shopify</span>
-        <span class="chip">Amazon</span>
-        <span class="chip">Faire</span>
-        <span class="chip">WooCommerce</span>
+          <div>
+            <div style="margin-bottom:24px">
+              <h3 style="margin:0 0 10px;font-size:22px">Platform Expertise</h3>
+              <div class="chiprow">
+                <span class="chip">Shopify</span>
+                <span class="chip">Amazon</span>
+                <span class="chip">Faire</span>
+                <span class="chip">WooCommerce</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom:24px">
+              <h3 style="margin:0 0 10px;font-size:22px">Core Services</h3>
+              <div class="chiprow core-services">
+                <span class="chip-p">Store Setup & Optimization</span>
+                <span class="chip-p">Vendor & Marketplace Management</span>
+                <span class="chip-p">E-Commerce Audits & Consulting</span>
+                <span class="chip-p">Workshops & Training</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div style="margin-bottom:24px">
-      <h3 style="margin:0 0 10px;font-size:22px">Core Services</h3>
-      <div class="chiprow">
-        <span class="chip-p">Store Setup & Optimization</span>
-        <span class="chip-p">Vendor & Marketplace Management</span>
-        <span class="chip-p">E-Commerce Audits & Consulting</span>
-        <span class="chip-p">Workshops & Training</span>
-      </div>
-    </div>
-  </div>
-</div>
     </section>
   </main>
 
@@ -165,8 +165,6 @@
   <script src="./includes.js"></script>
 </body>
 </html>
-
-
 
 <!-- Free Audit Popup -->
 <style>
@@ -258,7 +256,7 @@
     });
 
     if (!dismissed()) {
-      open(); // immediate on page load
+      open();
     }
   })();
 </script>
