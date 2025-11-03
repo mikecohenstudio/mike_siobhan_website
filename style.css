@@ -64,3 +64,8 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
   transform: translateY(-9px) rotate(-45deg);
 }
 
+@media (max-width:1200px){
+  .hamburger{display:flex !important;}
+  .nav{display:none !important;}
+}
+
