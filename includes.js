@@ -15,3 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
   inject("#site-header", "./partials/header.html");
   inject("#site-footer", "./partials/footer.html");
 });
+
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+  }
+});
