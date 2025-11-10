@@ -100,3 +100,26 @@ footer .container{padding:24px 16px;text-align:center;color:#64748b;font-size:14
 .hamburger.active span:nth-child(3) {
   transform: translateY(-7.5px) rotate(-45deg);
 }
+
+/* Fix tiny box on the button and force mobile hiding */
+.hamburger{
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  background: none;
+  line-height: 0;
+  font-size: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 60;
+}
+.hamburger span{ background: var(--fg); }
+
+/* Ensure links hide only on tablet/mobile */
+@media (max-width:900px){
+  header .row{ position: relative; }
+  header .nav{ display: none; }
+  header .nav.active{ display: flex; }
+}
+
