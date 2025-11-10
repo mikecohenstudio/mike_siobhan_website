@@ -14,29 +14,30 @@ async function inject(selector, url) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // Inject header first so elements exist
   await inject("#site-header", "./partials/header.html");
   await inject("#site-footer", "./partials/footer.html");
 
-  const navToggle = document.getElementById("nav-toggle");
+  // Wire up hamburger
+  const navToggle = document.getElementById("hamburger"); // matches your header.html
   const nav = document.getElementById("site-nav");
+
   if (!navToggle || !nav) return;
 
-  // Runtime controller to enforce behavior
+  // Ensure correct initial state by viewport
   const mq = window.matchMedia("(max-width: 900px)");
-
   function apply() {
     if (mq.matches) {
-      // Tablet/Mobile: hamburger visible, links hidden unless active
+      // tablet/mobile
       navToggle.style.display = "flex";
       if (!nav.classList.contains("active")) nav.style.display = "none";
     } else {
-      // Desktop: hamburger hidden, links always visible
+      // desktop
       navToggle.style.display = "none";
       nav.classList.remove("active");
       nav.style.display = "flex";
     }
   }
-
   apply();
   (mq.addEventListener ? mq.addEventListener("change", apply) : mq.addListener(apply));
 
