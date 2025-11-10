@@ -5,9 +5,8 @@ async function inject(selector, url) {
   try {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(res.status + " " + res.statusText);
-    const html = await res.text();
-    el.innerHTML = html;
-    return el; // allow awaiting injection completion
+    el.innerHTML = await res.text();
+    return el;
   } catch (e) {
     console.error("Include failed for", url, e);
     return null;
@@ -15,18 +14,35 @@ async function inject(selector, url) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // Inject header first so we can safely wire up the menu
   await inject("#site-header", "./partials/header.html");
   await inject("#site-footer", "./partials/footer.html");
 
-  // Hamburger menu toggle (runs AFTER header exists)
   const navToggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("site-nav");
+  if (!navToggle || !nav) return;
 
-  if (navToggle && nav) {
-    navToggle.addEventListener("click", () => {
-      navToggle.classList.toggle("active");
-      nav.classList.toggle("active");
-    });
+  // Runtime controller to enforce behavior
+  const mq = window.matchMedia("(max-width: 900px)");
+
+  function apply() {
+    if (mq.matches) {
+      // Tablet/Mobile: hamburger visible, links hidden unless active
+      navToggle.style.display = "flex";
+      if (!nav.classList.contains("active")) nav.style.display = "none";
+    } else {
+      // Desktop: hamburger hidden, links always visible
+      navToggle.style.display = "none";
+      nav.classList.remove("active");
+      nav.style.display = "flex";
+    }
   }
+
+  apply();
+  (mq.addEventListener ? mq.addEventListener("change", apply) : mq.addListener(apply));
+
+  navToggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("active");
+    navToggle.classList.toggle("active", open);
+    nav.style.display = open ? "flex" : "none";
+  });
 });
