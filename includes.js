@@ -5,7 +5,8 @@ async function inject(selector, url) {
   try {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(res.status + " " + res.statusText);
-    el.innerHTML = await res.text();
+    const html = await res.text();
+    el.innerHTML = html;
     return el;
   } catch (e) {
     console.error("Include failed for", url, e);
@@ -19,16 +20,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   await inject("#site-footer", "./partials/footer.html");
 
   // Wire up hamburger
-  const navToggle = document.getElementById("hamburger"); // matches your header.html
+  const navToggle = document.getElementById("hamburger"); // matches header.html
   const nav = document.getElementById("site-nav");
-
   if (!navToggle || !nav) return;
 
   // Ensure correct initial state by viewport
   const mq = window.matchMedia("(max-width: 900px)");
   function apply() {
     if (mq.matches) {
-      // tablet/mobile
+      // tablet or mobile
       navToggle.style.display = "flex";
       if (!nav.classList.contains("active")) nav.style.display = "none";
     } else {
@@ -39,8 +39,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
   apply();
-  (mq.addEventListener ? mq.addEventListener("change", apply) : mq.addListener(apply));
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+  else mq.addListener(apply);
 
+  // Toggle on click
   navToggle.addEventListener("click", () => {
     const open = nav.classList.toggle("active");
     navToggle.classList.toggle("active", open);
