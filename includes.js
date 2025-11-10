@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   await inject("#site-header", "./partials/header.html");
   await inject("#site-footer", "./partials/footer.html");
 
-  // Wire up hamburger
-  const navToggle = document.getElementById("hamburger"); // matches header.html
+  // Wire up hamburger (matches your header.html)
+  const navToggle = document.getElementById("hamburger");
   const nav = document.getElementById("site-nav");
   if (!navToggle || !nav) return;
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const mq = window.matchMedia("(max-width: 900px)");
   function apply() {
     if (mq.matches) {
-      // tablet or mobile
+      // tablet/mobile
       navToggle.style.display = "flex";
       if (!nav.classList.contains("active")) nav.style.display = "none";
     } else {
