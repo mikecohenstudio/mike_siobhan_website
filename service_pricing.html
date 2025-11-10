@@ -58,8 +58,6 @@
     .card{display:block;border:1px solid var(--border);background:var(--card);color:var(--card-fg);border-radius:14px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s, box-shadow .2s}
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.10)}
     .card .pad{padding:24px}
-    .bullet{display:flex;gap:10px;margin:10px 0;color:var(--muted);font-size:14px}
-    .dot{width:6px;height:6px;border-radius:999px;background:var(--primary);margin-top:8px;flex:0 0 6px}
 
     /* content blocks */
     .content{max-width:920px;margin:0 auto}
@@ -70,15 +68,10 @@
     ul{margin:0 0 8px 0;padding-left:18px;color:var(--fg)}
     li{margin:6px 0}
     .badge{display:inline-block;background:var(--primary);color:var(--primary-fg);font-weight:600;padding:6px 10px;border-radius:999px;font-size:12px}
+
     .divider{height:1px;background:var(--border);margin:28px 0}
 
-    /* CTA */
-    .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;border:1px solid var(--border);font-weight:600}
-    .btn.primary{background:var(--primary);color:var(--primary-fg);border-color:transparent;box-shadow:0 8px 20px var(--shadow)}
-    .btn.secondary{background:#fff}
-
-    /* Pricing line */
+    /* pricing line under each section */
     .price{margin-top:18px;font-weight:700;font-size:18px}
   </style>
 </head>
@@ -181,16 +174,9 @@
             </ul>
           </div>
         </div>
-        
-     </div>
-          <div>
-            <h3>Pricing:</h3>
-            <ul>
-              <li>$300 per audit</li>
-            </ul>
-          </div>
-        </div>
-        
+
+        <div class="divider"></div>
+        <p class="price">Pricing: $300 per audit</p>
       </div>
     </section>
 
