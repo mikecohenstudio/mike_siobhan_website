@@ -76,3 +76,42 @@ header .row{
 .hamburger.active span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
 .hamburger.active span:nth-child(2){ opacity:0; }
 .hamburger.active span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+
+/* Force the hamburger icon to show 3 bars */
+#hamburger{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width:28px;height:20px;
+  background:none;border:0;outline:0;box-shadow:none;
+  -webkit-appearance:none;appearance:none;
+  line-height:0;font-size:0;
+}
+#hamburger span{
+  display:block;
+  width:100%;height:3px;
+  background:var(--fg);
+  border-radius:2px;
+}
+
+/* Mobile dropdown layout */
+@media (max-width:900px){
+  header .row{ position:relative; }
+
+  /* hide links until opened, and place as dropdown */
+  #site-nav{
+    display:none !important;
+    position:absolute; top:72px; right:16px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    flex-direction:column; gap:8px;
+    z-index:1000;
+    min-width:220px;
+  }
+  #site-nav a{ color:var(--fg); margin:0; }
+
+  #site-nav.active{ display:flex !important; }
+}
