@@ -39,131 +39,95 @@ header .row{
 
 /* Hamburger button */
 .hamburger{
-  display:none; /* hidden on desktop */
-  background:none;border:0;padding:0;margin-left:16px;
-  width:28px;height:20px;cursor:pointer;line-height:0;font-size:0;
-  outline:0;box-shadow:none;-webkit-appearance:none;appearance:none;
-  position:relative;z-index:60;
+  display:none;
+  background:none;
+  border:0;
+  padding:0;
+  margin-left:16px;
+  width:28px;
+  height:20px;
+  cursor:pointer;
+  line-height:0;
+  font-size:0;
+  outline:0;
+  box-shadow:none;
+  -webkit-appearance:none;
+  appearance:none;
+  position:relative;
+  z-index:60;
 }
+
+/* Three bars - all same colour */
 .hamburger span{
-  display:block;width:100%;height:3px;background:var(--fg);
-  border-radius:2px;margin:3px 0;transition:transform .2s ease,opacity .2s ease;
+  position:absolute;
+  left:0;
+  right:0;
+  height:2px;
+  background:#000000;
+  border-radius:2px;
+  transition:transform .22s ease,opacity .22s ease;
+}
+
+/* Top, middle, bottom positions */
+.hamburger span:nth-child(1){
+  top:0;
+}
+.hamburger span:nth-child(2){
+  top:50%;
+  transform:translateY(-50%);
+}
+.hamburger span:nth-child(3){
+  bottom:0;
+}
+
+/* Open state -> clean, centred X */
+.hamburger.active span:nth-child(1){
+  top:50%;
+  transform:translateY(-50%) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  bottom:auto;
+  top:50%;
+  transform:translateY(-50%) rotate(-45deg);
 }
 
 /* Tablet & smaller */
 @media (max-width:900px){
-  header .row{ position:relative; }
-
-  .hamburger{ display:flex; }
-
-  /* hide links by default on mobile */
-  #site-nav{
-    display:none;
-    position:absolute;
-    top:72px; right:16px;
-    background:#fff;border:1px solid var(--border);
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    padding:12px;border-radius:8px;min-width:220px;z-index:50;
-    flex-direction:column; gap:8px;
+  header .row,
+  .row.header{
+    position:relative;
   }
-  #site-nav a{ color:var(--fg); }
 
-  /* show when toggled */
-  #site-nav.active{ display:flex; }
-}
+  /* show hamburger, hide links until opened */
+  .hamburger{
+    display:flex;
+  }
 
-/* Animate hamburger into X */
-.hamburger.active span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-.hamburger.active span:nth-child(2){ opacity:0; }
-.hamburger.active span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-
-/* Force the hamburger icon to show 3 bars */
-#hamburger{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  width:28px;height:20px;
-  background:none;border:0;outline:0;box-shadow:none;
-  -webkit-appearance:none;appearance:none;
-  line-height:0;font-size:0;
-}
-#hamburger span{
-  display:block;
-  width:100%;height:3px;
-  background:var(--fg);
-  border-radius:2px;
-}
-
-/* Mobile dropdown layout */
-@media (max-width:900px){
-  header .row{ position:relative; }
-
-  /* hide links until opened, and place as dropdown */
   #site-nav{
     display:none !important;
-    position:absolute; top:72px; right:16px;
+    position:absolute;
+    top:72px;
+    right:16px;
     background:#fff;
     border:1px solid var(--border);
     border-radius:8px;
     padding:12px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
-    flex-direction:column; gap:8px;
-    z-index:1000;
-    min-width:220px;
-  }
-  #site-nav a{ color:var(--fg); margin:0; }
-
-  #site-nav.active{ display:flex !important; }
-}
-
-/* Use the actual structure: .row.header (no <header> tag present) */
-.row.header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:72px;
-  position:relative; /* anchor for dropdown */
-}
-
-/* Desktop defaults */
-#site-nav{ display:flex; gap:24px; }
-#hamburger{ display:none; }
-
-/* Ensure hamburger shows bars */
-#hamburger{
-  flex-direction:column;
-  justify-content:space-between;
-  width:28px; height:20px;
-  background:none; border:0; outline:0; box-shadow:none;
-  -webkit-appearance:none; appearance:none;
-  line-height:0; font-size:0;
-}
-#hamburger span{
-  display:block;
-  width:100%; height:3px;
-  background:var(--fg);
-  border-radius:2px;
-}
-
-/* Tablet & mobile */
-@media (max-width:900px){
-  #hamburger{ display:flex; }
-
-  /* hide links by default and show as dropdown under the header */
-  #site-nav{
-    display:none !important;
-    position:absolute;
-    top:72px; right:16px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    flex-direction:column; gap:8px;
+    flex-direction:column;
+    gap:8px;
     min-width:220px;
     z-index:1000;
   }
-  #site-nav a{ margin:0; color:var(--fg); }
 
-  #site-nav.active{ display:flex !important; }
+  #site-nav a{
+    margin:0;
+    color:var(--fg);
+  }
+
+  #site-nav.active{
+    display:flex !important;
+  }
 }
